@@ -9,15 +9,28 @@ let package = Package(
         .macOS(.v15)
     ],
     products: [
+        .library(name: "CoreFirebase", targets: ["CoreFirebase"]),
         .library(name: "CoreNetworking", targets: ["CoreNetworking"]),
         .library(name: "CoreStorage", targets: ["CoreStorage"]),
         .library(name: "CoreLogger", targets: ["CoreLogger"]),
         .library(name: "SharedDesignSystem", targets: ["SharedDesignSystem"]),
         .library(name: "SharedUIComponents", targets: ["SharedUIComponents"]),
         .library(name: "HomeFeature", targets: ["HomeFeature"]),
-        .library(name: "SampleFeature", targets: ["SampleFeature"])
+        .library(name: "SampleFeature", targets: ["SampleFeature"]),
+        .library(name: "ReflectionFeature", targets: ["ReflectionFeature"])
+    ],
+    dependencies: [
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "12.5.0")
     ],
     targets: [
+        .target(
+            name: "CoreFirebase",
+            dependencies: [
+                .product(name: "FirebaseCore", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseRemoteConfig", package: "firebase-ios-sdk")
+            ],
+            path: "Core/Firebase"
+        ),
         .target(name: "CoreNetworking", path: "Core/Networking"),
         .target(name: "CoreStorage", path: "Core/Storage"),
         .target(name: "CoreLogger", path: "Core/Logger"),
@@ -42,10 +55,31 @@ let package = Package(
             ],
             path: "Features/SampleFeature"
         ),
+        .target(
+            name: "ReflectionFeature",
+            dependencies: [
+                "CoreFirebase",
+                "CoreStorage",
+                .product(name: "FirebaseAILogic", package: "firebase-ios-sdk"),
+                "SharedDesignSystem",
+                "SharedUIComponents"
+            ],
+            path: "Features/ReflectionFeature"
+        ),
         .testTarget(
             name: "SampleFeatureTests",
             dependencies: ["SampleFeature"],
             path: "Tests/SampleFeatureTests"
+        ),
+        .testTarget(
+            name: "HomeFeatureTests",
+            dependencies: ["HomeFeature"],
+            path: "Tests/HomeFeatureTests"
+        ),
+        .testTarget(
+            name: "ReflectionFeatureTests",
+            dependencies: ["ReflectionFeature", "CoreFirebase", "CoreStorage"],
+            path: "Tests/ReflectionFeatureTests"
         )
     ],
     swiftLanguageModes: [.v6]

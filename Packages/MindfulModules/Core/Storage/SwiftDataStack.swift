@@ -1,4 +1,5 @@
 import SwiftData
+import Foundation
 
 @Model
 public final class CachedSampleItem {
@@ -13,9 +14,32 @@ public final class CachedSampleItem {
     }
 }
 
+@Model
+public final class CachedReflectionItem {
+    public var id: UUID
+    public var text: String
+    public var createdAt: Date
+    public var model: String
+
+    public init(
+        id: UUID,
+        text: String,
+        createdAt: Date,
+        model: String
+    ) {
+        self.id = id
+        self.text = text
+        self.createdAt = createdAt
+        self.model = model
+    }
+}
+
 public enum SwiftDataStack {
     @MainActor
     public static func makeModelContainer() throws -> ModelContainer {
-        try ModelContainer(for: CachedSampleItem.self)
+        try ModelContainer(
+            for: CachedSampleItem.self,
+            CachedReflectionItem.self
+        )
     }
 }

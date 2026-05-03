@@ -4,6 +4,7 @@ import SwiftUI
 
 @main
 internal struct MindfulStarterApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @State private var coordinator: AppCoordinator
     private let container: DependencyContainer
     private let modelContainer: ModelContainer

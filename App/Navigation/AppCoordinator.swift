@@ -1,5 +1,6 @@
 import HomeFeature
 import Observation
+import ReflectionFeature
 import SampleFeature
 import SwiftUI
 
@@ -18,11 +19,23 @@ internal final class AppCoordinator {
         path.append(.sample)
     }
 
+    internal func showBreathingTutorial() {
+        path.append(.breathingTutorial)
+    }
+
+    internal func showReflection() {
+        path.append(.reflection)
+    }
+
     @ViewBuilder
     internal func view(for route: AppRoute) -> some View {
         switch route {
         case .sample:
             SampleView(viewModel: container.makeSampleViewModel())
+        case .breathingTutorial:
+            BreathingTutorialView()
+        case .reflection:
+            ReflectionView(viewModel: container.makeReflectionViewModel())
         }
     }
 }

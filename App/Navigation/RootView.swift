@@ -10,9 +10,17 @@ internal struct RootView: View {
 
     internal var body: some View {
         NavigationStack(path: $coordinator.path) {
-            HomeView {
-                coordinator.showSample()
-            }
+            HomeView(
+                onShowSample: {
+                    coordinator.showSample()
+                },
+                onShowBreathingTutorial: {
+                    coordinator.showBreathingTutorial()
+                },
+                onShowReflection: {
+                    coordinator.showReflection()
+                }
+            )
             .navigationDestination(for: AppRoute.self) { route in
                 coordinator.view(for: route)
             }

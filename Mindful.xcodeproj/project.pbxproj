@@ -7,20 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		285A95736EA4E0728720EBE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCA2DBE144E9DBE3ED7B03 /* AppDelegate.swift */; };
 		3F65A608F3311DAED0805766 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A69FC943F394872EFEDB82 /* DependencyContainer.swift */; };
 		4ECB1113092F8B00C81FF096 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CB9D90C4623BA7DCAF530 /* AppRoute.swift */; };
-		52AE4FEF2786B2A0FF1EC82C /* CoreNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 6DBCD231C617FB8685B811C9 /* CoreNetworking */; };
+		52AE4FEF2786B2A0FF1EC82C /* CoreFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 900F57C39E85FDCE35F89BF8 /* CoreFirebase */; };
 		9E5914718D4142850C1FE30D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91AFBC4071AEDB76E7D9575 /* RootView.swift */; };
-		9FA88D4FCB325C3A289D4897 /* HomeFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 624130D2CEB006E2169C1F0D /* HomeFeature */; };
-		AB5397CC7619651045EB9C23 /* SampleFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 9497D00B2F65AD0B4121774A /* SampleFeature */; };
+		9FA88D4FCB325C3A289D4897 /* CoreLogger in Frameworks */ = {isa = PBXBuildFile; productRef = A30CC0AAB5500963A53F0B92 /* CoreLogger */; };
+		AB5397CC7619651045EB9C23 /* HomeFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 624130D2CEB006E2169C1F0D /* HomeFeature */; };
 		BD05F97C8CF01365B45B9597 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A957BA34BD46870617C7872 /* AppCoordinator.swift */; };
-		BD4157C17E0E17B46C32FC29 /* CoreLogger in Frameworks */ = {isa = PBXBuildFile; productRef = A30CC0AAB5500963A53F0B92 /* CoreLogger */; };
+		BD4157C17E0E17B46C32FC29 /* CoreStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DECF687FBB529BC5AD8F2C56 /* CoreStorage */; };
 		BFDD94AB7F183A135529DAD7 /* MindfulStarterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4840880F8E279C5F33E3CB63 /* MindfulStarterApp.swift */; };
 		C66980684B46016FC1EFAFC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4247C8EC82C1D98CEA17AC99 /* Assets.xcassets */; };
-		E38AB5B551AF2CC78642E0B4 /* CoreStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DECF687FBB529BC5AD8F2C56 /* CoreStorage */; };
+		CA8E242B5A46666ED8FAC16A /* SampleFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 9497D00B2F65AD0B4121774A /* SampleFeature */; };
+		E38AB5B551AF2CC78642E0B4 /* CoreNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 6DBCD231C617FB8685B811C9 /* CoreNetworking */; };
+		F4DBD9CFD6D2329319864569 /* ReflectionFeature in Frameworks */ = {isa = PBXBuildFile; productRef = E2D9F51E453D5C79483668C8 /* ReflectionFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0ADCA2DBE144E9DBE3ED7B03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16180E80D585AD68FC0B9CB4 /* Mindful.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Mindful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A957BA34BD46870617C7872 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4247C8EC82C1D98CEA17AC99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,11 +40,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52AE4FEF2786B2A0FF1EC82C /* CoreNetworking in Frameworks */,
-				E38AB5B551AF2CC78642E0B4 /* CoreStorage in Frameworks */,
-				BD4157C17E0E17B46C32FC29 /* CoreLogger in Frameworks */,
-				9FA88D4FCB325C3A289D4897 /* HomeFeature in Frameworks */,
-				AB5397CC7619651045EB9C23 /* SampleFeature in Frameworks */,
+				52AE4FEF2786B2A0FF1EC82C /* CoreFirebase in Frameworks */,
+				E38AB5B551AF2CC78642E0B4 /* CoreNetworking in Frameworks */,
+				BD4157C17E0E17B46C32FC29 /* CoreStorage in Frameworks */,
+				9FA88D4FCB325C3A289D4897 /* CoreLogger in Frameworks */,
+				AB5397CC7619651045EB9C23 /* HomeFeature in Frameworks */,
+				CA8E242B5A46666ED8FAC16A /* SampleFeature in Frameworks */,
+				F4DBD9CFD6D2329319864569 /* ReflectionFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +89,7 @@
 		A4033871B72FD81D7AB8FA91 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				0ADCA2DBE144E9DBE3ED7B03 /* AppDelegate.swift */,
 				4840880F8E279C5F33E3CB63 /* MindfulStarterApp.swift */,
 			);
 			path = App;
@@ -125,6 +132,7 @@
 			buildConfigurationList = EB2A98E9C5D0D4DACCE81535 /* Build configuration list for PBXNativeTarget "Mindful" */;
 			buildPhases = (
 				A0B6E37473A712389FF71BB4 /* Sources */,
+				63B1AF54A5DAE444B12F63FF /* Copy Firebase Config */,
 				4CB461C9D6C5A0CA3A048A02 /* Resources */,
 				53DEFF3277121E14C8659EC5 /* Frameworks */,
 			);
@@ -134,11 +142,13 @@
 			);
 			name = Mindful;
 			packageProductDependencies = (
+				900F57C39E85FDCE35F89BF8 /* CoreFirebase */,
 				6DBCD231C617FB8685B811C9 /* CoreNetworking */,
 				DECF687FBB529BC5AD8F2C56 /* CoreStorage */,
 				A30CC0AAB5500963A53F0B92 /* CoreLogger */,
 				624130D2CEB006E2169C1F0D /* HomeFeature */,
 				9497D00B2F65AD0B4121774A /* SampleFeature */,
+				E2D9F51E453D5C79483668C8 /* ReflectionFeature */,
 			);
 			productName = Mindful;
 			productReference = 16180E80D585AD68FC0B9CB4 /* Mindful.app */;
@@ -191,12 +201,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		63B1AF54A5DAE444B12F63FF /* Copy Firebase Config */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Firebase Config";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FIREBASE_CONFIG=\"${SRCROOT}/App/Resources/GoogleService-Info.plist\"\nFIREBASE_CONFIG_DESTINATION=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleService-Info.plist\"\nif [ -f \"$FIREBASE_CONFIG\" ]; then\n  mkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\n  cp \"$FIREBASE_CONFIG\" \"$FIREBASE_CONFIG_DESTINATION\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A0B6E37473A712389FF71BB4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BD05F97C8CF01365B45B9597 /* AppCoordinator.swift in Sources */,
+				285A95736EA4E0728720EBE8 /* AppDelegate.swift in Sources */,
 				4ECB1113092F8B00C81FF096 /* AppRoute.swift in Sources */,
 				3F65A608F3311DAED0805766 /* DependencyContainer.swift in Sources */,
 				BFDD94AB7F183A135529DAD7 /* MindfulStarterApp.swift in Sources */,
@@ -417,6 +451,10 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = CoreNetworking;
 		};
+		900F57C39E85FDCE35F89BF8 /* CoreFirebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreFirebase;
+		};
 		9497D00B2F65AD0B4121774A /* SampleFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SampleFeature;
@@ -428,6 +466,10 @@
 		DECF687FBB529BC5AD8F2C56 /* CoreStorage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CoreStorage;
+		};
+		E2D9F51E453D5C79483668C8 /* ReflectionFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ReflectionFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

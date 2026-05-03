@@ -24,11 +24,19 @@ build/
 Pods/
 Carthage/Build/
 
+# Node / Firebase
+node_modules/
+firebase-debug.log
+firebase-debug.*.log
+
 # Fastlane
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output/
+
+# Firebase local config
+App/Resources/GoogleService-Info.plist
 
 # Local agent state
 .agents/

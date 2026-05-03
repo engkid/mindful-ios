@@ -21,9 +21,12 @@ targets:
     deploymentTarget: "18.0"
     sources:
       - path: App
-    resources:
-      - path: App/Resources
+        excludes:
+          - Resources/GoogleService-Info.plist
+          - Resources/GoogleService-Info.plist.example
     dependencies:
+      - package: MindfulModules
+        product: CoreFirebase
       - package: MindfulModules
         product: CoreNetworking
       - package: MindfulModules
@@ -34,6 +37,19 @@ targets:
         product: HomeFeature
       - package: MindfulModules
         product: SampleFeature
+      - package: MindfulModules
+        product: ReflectionFeature
+    postCompileScripts:
+      - name: Copy Firebase Config
+        basedOnDependencyAnalysis: false
+        showEnvVars: false
+        script: |
+          FIREBASE_CONFIG="${SRCROOT}/App/Resources/GoogleService-Info.plist"
+          FIREBASE_CONFIG_DESTINATION="${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleService-Info.plist"
+          if [ -f "$FIREBASE_CONFIG" ]; then
+            mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+            cp "$FIREBASE_CONFIG" "$FIREBASE_CONFIG_DESTINATION"
+          fi
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.example.mindful

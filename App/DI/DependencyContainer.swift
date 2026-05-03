@@ -1,7 +1,9 @@
+import CoreFirebase
 import CoreLogger
 import CoreNetworking
 import CoreStorage
 import Foundation
+import ReflectionFeature
 import SampleFeature
 import SwiftData
 
@@ -46,11 +48,35 @@ internal struct DependencyContainer {
         return SampleViewModel(fetchItemsUseCase: useCase)
     }
 
+    internal func makeReflectionViewModel() -> ReflectionViewModel {
+        let remoteDataSource: any ReflectionRemoteDataSource
+
+        if FirebaseBootstrap.isConfigured {
+            remoteDataSource = FirebaseAIReflectionRemoteDataSource()
+        } else {
+            remoteDataSource = UnconfiguredReflectionRemoteDataSource()
+        }
+
+        let cacheDataSource = SwiftDataReflectionCacheDataSource(modelContainer: modelContainer)
+        let repository = DefaultReflectionRepository(
+            remoteDataSource: remoteDataSource,
+            cacheDataSource: cacheDataSource
+        )
+
+        return ReflectionViewModel(
+            generateReflectionUseCase: DefaultGenerateReflectionUseCase(repository: repository),
+            saveReflectionUseCase: DefaultSaveReflectionUseCase(repository: repository),
+            fetchSavedReflectionsUseCase: DefaultFetchSavedReflectionsUseCase(repository: repository),
+            deleteSavedReflectionUseCase: DefaultDeleteSavedReflectionUseCase(repository: repository)
+        )
+    }
+
     private static func fallbackModelContainer() -> ModelContainer {
         let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
         do {
             return try ModelContainer(
                 for: CachedSampleItem.self,
+                CachedReflectionItem.self,
                 configurations: configuration
             )
         } catch {
